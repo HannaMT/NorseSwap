@@ -1,0 +1,128 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Custom Fonts Fallbacks ─────────────────── */
+@layer base {
+  :root {
+    --orange:   #FF5C1A;
+    --yellow:   #FFD93D;
+    --green:    #06D6A0;
+    --blue:     #118AB2;
+    --navy:     #0A0F1E;
+    --ink:      #12172B;
+    --offwhite: #F5F2EB;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-brand-offwhite text-brand-ink font-body antialiased;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display;
+  }
+}
+
+/* ─── Scrollbar ───────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { @apply bg-brand-ink/20 rounded-full; }
+::-webkit-scrollbar-thumb:hover { @apply bg-brand-ink/40; }
+
+/* ─── Selection ──────────────────────────────── */
+::selection {
+  background: var(--orange);
+  color: white;
+}
+
+/* ─── Utility Classes ────────────────────────── */
+@layer components {
+
+  /* Buttons */
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-6 py-3 bg-brand-orange text-white font-display font-semibold rounded-xl
+           hover:bg-orange-600 active:scale-95 transition-all duration-150 shadow-lg shadow-orange-500/25;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 px-6 py-3 bg-brand-ink text-white font-display font-semibold rounded-xl
+           hover:bg-zinc-800 active:scale-95 transition-all duration-150;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 px-6 py-3 border-2 border-brand-ink text-brand-ink font-display font-semibold rounded-xl
+           hover:bg-brand-ink hover:text-white active:scale-95 transition-all duration-150;
+  }
+
+  .btn-sm {
+    @apply px-4 py-2 text-sm rounded-lg;
+  }
+
+  /* Cards */
+  .card {
+    @apply bg-white rounded-2xl border border-black/5 shadow-sm hover:shadow-md transition-shadow duration-200;
+  }
+
+  .card-ink {
+    @apply bg-brand-ink text-white rounded-2xl;
+  }
+
+  /* Inputs */
+  .input {
+    @apply w-full px-4 py-3 bg-white border-2 border-black/10 rounded-xl font-body text-brand-ink
+           placeholder:text-brand-ink/30 focus:outline-none focus:border-brand-orange transition-colors duration-150;
+  }
+
+  .label {
+    @apply block text-sm font-display font-semibold text-brand-ink/70 mb-1.5;
+  }
+
+  /* Badges */
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-display font-semibold;
+  }
+
+  .badge-orange { @apply badge bg-orange-100 text-orange-700; }
+  .badge-green  { @apply badge bg-emerald-100 text-emerald-700; }
+  .badge-blue   { @apply badge bg-blue-100 text-blue-700; }
+  .badge-yellow { @apply badge bg-yellow-100 text-yellow-700; }
+  .badge-ink    { @apply badge bg-brand-ink text-white; }
+
+  /* Section headings */
+  .section-tag {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 bg-brand-orange/10 text-brand-orange
+           font-mono text-xs font-medium rounded-full border border-brand-orange/20 mb-4;
+  }
+
+  /* Listing card type chip */
+  .type-chip-rental  { @apply badge bg-blue-500 text-white; }
+  .type-chip-sale    { @apply badge bg-brand-orange text-white; }
+  .type-chip-service { @apply badge bg-brand-green text-brand-ink; }
+
+  /* Page wrapper */
+  .page-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+}
+
+/* ─── Stagger animation helpers ──────────────── */
+.stagger-1 { animation-delay: 0.05s; }
+.stagger-2 { animation-delay: 0.10s; }
+.stagger-3 { animation-delay: 0.15s; }
+.stagger-4 { animation-delay: 0.20s; }
+.stagger-5 { animation-delay: 0.25s; }
+
+/* ─── Toast overrides ────────────────────────── */
+.react-hot-toast > div {
+  font-family: 'Cabinet Grotesk', sans-serif !important;
+  font-weight: 500 !important;
+}

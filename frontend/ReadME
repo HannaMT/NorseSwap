@@ -1,0 +1,46 @@
+# CampusLoop Frontend
+
+React + Vite frontend for the CampusLoop student marketplace.
+
+## Setup
+
+```bash
+npm install
+cp .env.example .env
+npm run dev
+```
+
+Runs at **http://localhost:3000** — API requests proxy to the FastAPI backend at port 8000.
+
+## Pages
+
+| Route | Page |
+|-------|------|
+| `/` | Landing page |
+| `/login` | Login |
+| `/register` | Register |
+| `/browse` | Browse listings (with filters) |
+| `/listings/:id` | Single listing detail |
+| `/create` | Create listing (3-step with photo upload) |
+| `/dashboard` | Dashboard (rentals, orders, sales, bookings) |
+| `/messages` | Real-time messaging |
+| `/profile/:id` | Public profile |
+
+## Stack
+
+- **React 18** + **Vite**
+- **Tailwind CSS** — utility-first styling
+- **React Query** — server state & caching
+- **Zustand** — auth state
+- **React Hook Form** — form handling
+- **React Dropzone** — photo upload
+- **Axios** — HTTP client with auto token refresh
+- **Lucide React** — icons
+- **date-fns** — date formatting
+- **React Hot Toast** — notifications
+
+## Design
+
+- **Fonts:** Clash Display (headings) + Cabinet Grotesk (body)
+- **Colors:** Orange `#FF5C1A` · Yellow `#FFD93D` · Green `#06D6A0` · Navy `#0A0F1E`
+- Bold, energetic aesthetic built for college students
